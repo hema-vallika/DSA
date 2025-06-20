@@ -30,7 +30,7 @@ public class Arrques {
     }
 
 
-    public static int buyAndSellStocks(int prices []){
+    public static int buyAndSellStocks(int prices []){//O(n)
         int buyPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
         for(int i=0;i<prices.length;i++){

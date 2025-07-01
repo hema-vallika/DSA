@@ -55,7 +55,12 @@ public class BitManipulation {
     }
 
 
-
+    public static int clearRangeIBits(int n,int i,int j){
+        int a = ((~0)<<(j+1));
+        int b=(1<<i)-1;
+        int bitMask = a|b;
+        return n & bitMask;
+    }
 
 
 
@@ -96,20 +101,20 @@ public class BitManipulation {
 
     public static void main(String[] args) {
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //     System.out.println(5 & 6);
-    //     System.out.println(5 | 6);
-    //     System.out.println(5 ^ 6);
-    //     //5-> 101
-    //     //6-> 110
-    //    //5^6->011 -> 0/p will be 3 
-    //     System.out.println(~3);
-        
-    //     System.out.println(5<<2);
-    //     System.out.println(6>>1);
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~
-    // oddOrEven(3);
-    // oddOrEven(4);
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //     System.out.println(5 & 6);
+        //     System.out.println(5 | 6);
+        //     System.out.println(5 ^ 6);
+        //     //5-> 101
+        //     //6-> 110
+        //    //5^6->011 -> 0/p will be 3 
+        //     System.out.println(~3);
+            
+        //     System.out.println(5<<2);
+        //     System.out.println(6>>1);
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~
+        // oddOrEven(3);
+        // oddOrEven(4);
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~
         // operations
         // 1.Get ith bit
         // System.out.println(getIthBit(10,3 ));
@@ -121,13 +126,15 @@ public class BitManipulation {
         // System.out.println(updateIthBit(10, 2, 1));
         //5.last i bits clear
         // System.out.println(clearLastIBits(15,2 ));
-
+        //6.range clear bits
+        System.out.println(clearRangeIBits(10, 2, 4));
         //7.is power of two
         // System.out.println(isPowerOfTwo(15));
         //8.count set bit
         // System.out.println(countSetBits(15));
         //9.fast exponentiation
-        System.out.println(fastExpo(5, 3));
+        // System.out.println(fastExpo(5, 3));
+        
 
     }
     

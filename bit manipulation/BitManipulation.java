@@ -55,6 +55,45 @@ public class BitManipulation {
     }
 
 
+
+
+
+
+
+
+
+    public static boolean isPowerOfTwo(int n){
+        return (n&(n-1)) == 0; 
+    }
+
+
+    public static int countSetBits(int n){
+        int count = 0;
+        while(n>0){
+            if((n&1) != 0){ //checking our LSB
+                count++;
+
+            }
+            n= n>>1;
+        }
+        return count;
+    }
+
+
+    public static int fastExpo(int a,int n){
+        int ans =1;
+        while(n>0){
+            if((n&1)!=0){//lsb non zero hein
+                ans = ans * a;
+
+            }
+            a= a * a;
+            n=n>>1;
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //     System.out.println(5 & 6);
@@ -80,8 +119,15 @@ public class BitManipulation {
         // System.out.println(clearIthBit(10, 1));
         //4.update ith bit
         // System.out.println(updateIthBit(10, 2, 1));
-        //last i bits clear
-        System.out.println(clearLastIBits(15,2 ));
+        //5.last i bits clear
+        // System.out.println(clearLastIBits(15,2 ));
+
+        //7.is power of two
+        // System.out.println(isPowerOfTwo(15));
+        //8.count set bit
+        // System.out.println(countSetBits(15));
+        //9.fast exponentiation
+        System.out.println(fastExpo(5, 3));
 
     }
     

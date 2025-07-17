@@ -148,7 +148,7 @@ public class RecQues{
         }
     }
     
-    
+
     //print all subsequences of a string in same order
     public static void printSubsequences(String str, int idx, String newStr) {
         // base case
@@ -185,6 +185,39 @@ public class RecQues{
         printUniqueSubsequences(str, idx + 1, newStr,set);
     }
 
+    public static String [] keypad = {
+        ".", 
+        "abc", 
+        "def", 
+        "ghi", 
+        "jkl", 
+        "mno", 
+        "pqrs", 
+        "tuv", 
+        "wxyz"
+    };
+
+    public static void printKeypadCombinations(String str, int idx, String combination) {
+        // base case
+        if (idx == str.length()) {
+            System.out.println(combination);
+            return;
+        }
+
+        // kaam
+       char currchar = str.charAt(idx);//2
+        String mapping = keypad[currchar - '0']; // convert char to int and get corresponding letters//def
+
+        for (int i = 0; i < mapping.length(); i++) {
+            // include the current letter and move to the next index
+            printKeypadCombinations(str, idx + 1, combination + mapping.charAt(i));
+        }
+    }
+
+
+
+
+
 
     public static void main(String[] args) {
         // int arr [] = { 3,2,4,5,6,2,7,2,2};
@@ -208,5 +241,9 @@ public class RecQues{
         // HashSet <String> set = new HashSet<>();
         // System.out.println("Unique Subsequences of " + str + ":");
         // printUniqueSubsequences(str, 0, "", set);
+
+        String str = "23";
+        System.out.println("Keypad Combinations for " + str + ":");
+        printKeypadCombinations(str, 0, "");
     }
 }
